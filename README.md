@@ -2,7 +2,7 @@
 
 **ParseChat** is a Chat app using an [open source Parse](http://parseplatform.org/) backend.
 
-Time spent: **3.5** hours spent in total
+Time spent: **4.5** hours spent in total
 
 ## User Stories
 
@@ -18,8 +18,8 @@ The following **required** user stories are complete:
 
 The following **stretch** user stories are implemented:
 
-- [ ] User sees an activity indicator while waiting for authentication (+1pt)
-- [ ] User can pull to refresh Chat feed (+1pt)
+- [x] User sees an activity indicator while waiting for authentication (+1pt)
+- [x] User can pull to refresh Chat feed (+1pt)
 - [ ] Add an "Adorable Avatar" for each user by requesting an avatar from the [Adorable Avatars API](https://github.com/adorableio/avatars-api) (+2pt)
 - [ ] Chat Bubble Style Design (+3pt)
 - [ ] Expand or contract the cell layout as needed to show the chat message author (user) if it exists (+2pt)

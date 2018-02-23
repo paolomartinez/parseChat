@@ -8,12 +8,14 @@
 
 import UIKit
 import Parse
+import KRProgressHUD
 
 class ChatViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var messageTableView: UITableView!
     @IBOutlet var chatMessageField: UITextField!
     var messages: [PFObject] = []
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +24,34 @@ class ChatViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         messageTableView.delegate = self
         messageTableView.rowHeight = UITableViewAutomaticDimension
         messageTableView.estimatedRowHeight = 50
-        // Provide an estimated row height. Used for calculating scroll indicator
-        messageTableView.estimatedRowHeight = 50
-        // Add code to be run periodically
+        
+        handlePullToRefresh()
+        
+        KRProgressHUD.show()
+        getMessages()
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            KRProgressHUD.dismiss()
+        }
+        
+        // Table fetches messages every 1 second
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.getMessages), userInfo: nil, repeats: true)
+        
     }
-
+    
+    func handlePullToRefresh() {
+        // Pull to refresh
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ChatViewController.didPullToRefresh(_:)), for: .valueChanged)
+        messageTableView.insertSubview(refreshControl, at: 0)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
+        getMessages()
     }
     
     @IBAction func onSend(_ sender: Any) {
@@ -83,5 +104,6 @@ class ChatViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             }
         }
         self.messageTableView.reloadData()
+        self.refreshControl.endRefreshing()
     }
 }

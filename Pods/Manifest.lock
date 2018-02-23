@@ -1,17 +1,23 @@
 PODS:
   - Bolts/Tasks (1.9.0)
+  - KRActivityIndicatorView (2.1.1)
+  - KRProgressHUD (3.2.0):
+    - KRActivityIndicatorView (= 2.1.1)
   - Parse (1.16.0):
     - Parse/Core (= 1.16.0)
   - Parse/Core (1.16.0):
     - Bolts/Tasks (~> 1.9)
 
 DEPENDENCIES:
+  - KRProgressHUD
   - Parse
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  KRActivityIndicatorView: fa5df9f4cf039651ad8b0f9c11c3159d1e19299f
+  KRProgressHUD: b7f305ce615c287d2e3452b0570f466c1ba4a2e2
   Parse: 5b36dc2c2f0a2fd82a257ae018bc3d68cf2c24e7
 
-PODFILE CHECKSUM: 8748d417c673c67e95bf6f767a1bdb54bacafce7
+PODFILE CHECKSUM: 056594e1100dc7d5acf865e1a9dbddbbb4ddf41d
 
 COCOAPODS: 1.4.0
