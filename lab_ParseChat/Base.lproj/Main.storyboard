@@ -77,7 +77,7 @@
         <!--Chat-->
         <scene sceneID="Dmy-hp-hAr">
             <objects>
-                <viewController title="Chat" id="vTO-Jg-Syc" customClass="ChatViewController" customModule="lab_ParseChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" title="Chat" id="vTO-Jg-Syc" customClass="ChatViewController" customModule="lab_ParseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uco-yH-40C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
