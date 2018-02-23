@@ -102,29 +102,38 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="OwV-9K-73E" customClass="ChatCell" customModule="lab_ParseChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="68" id="OwV-9K-73E" customClass="ChatCell" customModule="lab_ParseChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OwV-9K-73E" id="feF-0S-wie">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey bighead" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rp-kg-Cnk">
-                                                    <rect key="frame" x="8" y="8" width="327" height="27.5"/>
+                                                    <rect key="frame" x="8" y="39" width="327" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdQ-bO-WPY">
+                                                    <rect key="frame" x="8" y="0.0" width="112" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="1rp-kg-Cnk" firstAttribute="leading" secondItem="feF-0S-wie" secondAttribute="leading" constant="8" id="9GO-Cl-8iH"/>
-                                                <constraint firstItem="1rp-kg-Cnk" firstAttribute="top" secondItem="feF-0S-wie" secondAttribute="top" constant="8" id="IDB-vj-2rn"/>
+                                                <constraint firstItem="pdQ-bO-WPY" firstAttribute="leading" secondItem="feF-0S-wie" secondAttribute="leading" constant="8" id="Pyw-Uy-cgl"/>
                                                 <constraint firstAttribute="bottom" secondItem="1rp-kg-Cnk" secondAttribute="bottom" constant="8" id="XBX-NL-d9g"/>
+                                                <constraint firstItem="pdQ-bO-WPY" firstAttribute="top" secondItem="feF-0S-wie" secondAttribute="top" id="fHl-DW-nLJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="1rp-kg-Cnk" secondAttribute="trailing" constant="8" id="oYX-mJ-N8j"/>
+                                                <constraint firstItem="1rp-kg-Cnk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pdQ-bO-WPY" secondAttribute="bottom" constant="8" id="uTN-Xm-4th"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="messageLabel" destination="1rp-kg-Cnk" id="rVH-sr-Ikg"/>
+                                            <outlet property="usernameLabel" destination="pdQ-bO-WPY" id="JBX-LU-rmb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -35,6 +35,7 @@ class ChatViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBAction func onSend(_ sender: Any) {
         let chatMessage = PFObject(className: "Message")
+        chatMessage["user"] = PFUser.current()
         chatMessage["text"] = chatMessageField.text ?? ""
         chatMessage.saveInBackground { (success, error) in
             if success {
@@ -56,6 +57,13 @@ class ChatViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         let message = messages[indexPath.row]["text"] as! String
         cell.messageLabel.text = message
         
+        if let user = messages[indexPath.row]["user"] as? PFUser {
+            // User found! update username label with username
+            cell.usernameLabel.text = user.username
+        } else {
+            // No user found, set default username
+            cell.usernameLabel.text = "🤖"
+        }
         return cell
     }
     
@@ -69,10 +77,11 @@ class ChatViewController: ViewController, UITableViewDelegate, UITableViewDataSo
             if let messages = messages {
                 self.messages = messages
                 print(self.messages)
-                self.messageTableView.reloadData()
+                
             } else {
                 print("Error from chat view controller trying to get messages in getMessages() function with localized description \"\(error!.localizedDescription)\"")
             }
         }
+        self.messageTableView.reloadData()
     }
 }
